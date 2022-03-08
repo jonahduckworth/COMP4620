@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+      #menu {
+        display: block;
+        position: absolute;
+        height: 25px;
+        width: 120px;
+        /*
+            border-style: solid;
+            border-width: 2px;
+            top: 100px;
+            left: 100px;
+            */
+        z-index: 999999;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <h1>Calculator</h1>
+      <h2>Using GET</h2>
+      <div style="margin: 20px">
+        x = <input id="x" type="number" value="10" /><br /><br />
+        y = <input id="y" type="number" value="20" /><br /><br />
+        x + y = <span id="result-add"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-add"
+        >
+          Submit</button
+        ><br /><br />
+        x - y = <span id="result-sub"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-sub"
+        >
+          Submit</button
+        ><br /><br />
+        x * y = <span id="result-multi"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-multi"
+        >
+          Submit</button
+        ><br /><br />
+        x / y = <span id="result-div"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-div"
+        >
+          Submit</button
+        ><br /><br />
+      </div>
+      <h2>Using POST</h2>
+      <div id="div-post" style="margin: 20px">
+        x = <input id="x" type="number" value="10" /><br /><br />
+        y = <input id="y" type="number" value="20" /><br /><br />
+        x + y = <span id="result-add"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-add"
+        >
+          Submit</button
+        ><br /><br />
+        x - y = <span id="result-sub"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-sub"
+        >
+          Submit</button
+        ><br /><br />
+        x * y = <span id="result-multi"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-multi"
+        >
+          Submit</button
+        ><br /><br />
+        x / y = <span id="result-div"></span> &nbsp;&nbsp;&nbsp;<button
+          id="submit-div"
+        >
+          Submit</button
+        ><br /><br />
+      </div>
+    </div>
+    <script>
+      let url = "calculator.sjs";
+      let query = {};
+      $("#submit-add").click(function () {
+        query["op"] = "addition";
+        query["x"] = $("#x").val();
+        query["y"] = $("#y").val();
+        $.get(
+          url + "?op=addition&x=" + query["x"] + "&y=" + query["y"],
+          function (result) {
+            $("#result-add").html(result);
+          }
+        );
+      });
+      $("#submit-sub").click(function () {
+        query["op"] = "subtraction";
+        query["x"] = $("#x").val();
+        query["y"] = $("#y").val();
+        $.get(
+          url + "?op=subtraction&x=" + query["x"] + "&y=" + query["y"],
+          function (result) {
+            $("#result-sub").html(result);
+          }
+        );
+      });
+      $("#submit-multi").click(function () {
+        query["op"] = "multiplication";
+        query["x"] = $("#x").val();
+        query["y"] = $("#y").val();
+        $.get(
+          url + "?op=multiplication&x=" + query["x"] + "&y=" + query["y"],
+          function (result) {
+            $("#result-multi").html(result);
+          }
+        );
+      });
+      $("#submit-div").click(function () {
+        query["op"] = "division";
+        query["x"] = $("#x").val();
+        query["y"] = $("#y").val();
+        $.get(
+          url + "?op=division&x=" + query["x"] + "&y=" + query["y"],
+          function (result) {
+            $("#result-div").html(result);
+          }
+        );
+      });
+
+      $("#div-post #submit-add").click(function () {
+        query["op"] = "addition";
+        query["x"] = $("#div-post #x").val();
+        query["y"] = $("#div-post #y").val();
+        $.post(url, query, function (result) {
+          $("#div-post #result-add").html(result);
+        });
+      });
+      $("#div-post #submit-sub").click(function () {
+        query["op"] = "subtraction";
+        query["x"] = $("#div-post #x").val();
+        query["y"] = $("#div-post #y").val();
+        $.post(url, query, function (result) {
+          $("#div-post #result-sub").html(result);
+        });
+      });
+      $("#div-post #submit-multi").click(function () {
+        query["op"] = "multiplication";
+        query["x"] = $("#div-post #x").val();
+        query["y"] = $("#div-post #y").val();
+        $.post(url, query, function (result) {
+          $("#div-post #result-multi").html(result);
+        });
+      });
+      $("#div-post #submit-div").click(function () {
+        query["op"] = "division";
+        query["x"] = $("#div-post #x").val();
+        query["y"] = $("#div-post #y").val();
+        $.post(url, query, function (result) {
+          $("#div-post #result-div").html(result);
+        });
+      });
+    </script>
+  </body>
+</html>
