@@ -51,7 +51,6 @@ const proceed_with_resolved_pathname = function proceed_with_resolved_pathname(
       }
 
       if (type == "POST") {
-        console.log("post!!");
         // get the POST data
         var query = "";
         request.on("data", function (chunk) {
@@ -85,6 +84,7 @@ function route(request, response) {
   var pathname = decodeURI(url.parse(request.url).pathname);
   var words = pathname.split("/");
 
+  // resolve pathname
   if (words[1][0] == "~") {
     console.log(words[1][0]);
     tilde(words[1], function (expanded) {

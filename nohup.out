@@ -1,0 +1,124 @@
+node:internal/modules/cjs/loader:936
+  throw err;
+  ^
+
+Error: Cannot find module 'tilde-expansion'
+Require stack:
+- /home2/students/jduckworth/public_html/Project/router.js
+- /home2/students/jduckworth/public_html/Project/index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (/home2/students/jduckworth/public_html/Project/router.js:4:13)
+    at Module._compile (node:internal/modules/cjs/loader:1103:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home2/students/jduckworth/public_html/Project/router.js',
+    '/home2/students/jduckworth/public_html/Project/index.js'
+  ]
+}
+node:internal/modules/cjs/loader:936
+  throw err;
+  ^
+
+Error: Cannot find module 'tilde-expansion'
+Require stack:
+- /home2/students/jduckworth/public_html/Project/router.js
+- /home2/students/jduckworth/public_html/Project/index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (/home2/students/jduckworth/public_html/Project/router.js:4:13)
+    at Module._compile (node:internal/modules/cjs/loader:1103:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home2/students/jduckworth/public_html/Project/router.js',
+    '/home2/students/jduckworth/public_html/Project/index.js'
+  ]
+}
+~
+//home2/students/comp3540test/public_html/chat_view.html
+chat_view.html
+~
+//home2/students/comp3540test/public_html/menu_icon.png
+/var/www/html/chat_view.html
+chat_view.html
+/var/www/html/menu_icon.png
+~
+//home2/students/comp3540test/public_html/chat_view.html
+chat_view.html
+~
+//home2/students/comp3540test/public_html/menu_icon.png
+/var/www/html/chat_view.html
+chat_view.html
+/var/www/html/menu_icon.png
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'join',
+  username: 'sam',
+  password: '123',
+  email: 's@m.ca'
+}
+succesful join
+connected
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'join',
+  username: 'sam',
+  password: '123',
+  email: 's@m.ca'
+}
+succesful join
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'signin',
+  username: 'sam',
+  password: '123'
+}
+succesful sign in
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'signin',
+  username: 'sam2',
+  password: '123'
+}
+succesful sign in
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'unsubscribe',
+  username: 'sam2',
+  password: '123'
+}
+succesful unsubscribe
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'unsubscribe',
+  username: 'sam',
+  password: '123'
+}
+succesful unsubscribe
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'join',
+  username: 'sam',
+  password: '123',
+  email: 's@m.ca'
+}
+succesful join

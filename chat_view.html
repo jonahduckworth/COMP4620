@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>TRU Chatting</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <style>
+        #ddm {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+        #ddm li, #ddm ul {
+            list-style: none;
+            padding: 0;
+            background-color: Gray;
+            cursor:pointer;
+        }
+        #ddm ul {
+            border: 1px solid black;
+        }
+        #ddm > li {
+            position: relative;
+        }
+        #ddm > li > ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+        #ddm > li > ul > li { padding: 5px; }
+        #ddm li:hover {
+            background-color: #eee;
+        }
+        #ddm > li:hover > ul {
+            display: block;
+        }
+
+        .modal-window {
+            display: none;
+            background-color: White;
+            width: 400px; height: 300px; border: 1px solid black;
+            position: absolute; top: 100px; left: calc(50% - 200px);
+            z-index: 999;
+            padding: 10px;
+        }
+        .modal-label {
+            display: inline-block;
+            width: 80px;
+        }
+        
+        #blanket {
+            display: none;
+            background-color: LightGrey;
+            opacity: 0.5;
+            position: fixed; top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 998;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style='text-align:center'>TRU Chatting with WebSocket</h1>
+    <h2 id='signed-title' style='text-align:center'></h2>
+    <br>
+    <hr>
+    
+    <!-- menu -->
+    <ul id='ddm'>
+        <li style='width: 50px;'><img src='menu_icon.png' width='50px' height='50px'></img>
+            <ul style='width:120px'>
+                <li id='menu-signin'>Sign In</li>
+                <li id='menu-join'>Join</li>
+                <li id='menu-unsubscribe'>Unsubscribe</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <!-- blanket for modal windows -->
+    <div id='blanket'>
+    </div>
+
+    <!-- SignIn modal window-->
+    <div id='signin-box' class='modal-window'>
+        <h2 style='text-align:center'>Sign In</h2>
+        <br>
+        <form>
+            <label class='modal-label'>Username:</label>
+            <input id='username-signin-input' type='text' name='username' required><br>
+            <br>
+            <label class='modal-label'>Password:</label>
+            <input id='password-signin-input' type='password' name='password' required><br>
+            <br>
+            <button id='submit-signin-button' type='button'>Submit</button>&nbsp;&nbsp;
+            <input id='cancel-signin-button' type='button' value='Cancel'>&nbsp;&nbsp;
+            <input type='reset'>
+        </form>
+    </div>
+    
+    <!-- Join modal window-->
+    <div id='join-box' class='modal-window'>
+        <h2 style='text-align:center'>Join</h2>
+        <br>
+        <form>
+            <label class='modal-label'>Username:</label>
+            <input id='username-join-input' type='text' name='username' required><br>
+            <br>
+            <label class='modal-label'>Password:</label>
+            <input id='password-join-input' type='password' name='password' required><br>
+            <br>
+            <label class='modal-label'>Email:</label>
+            <input id='email-join-input' type='text' name='email' required><br>
+            <br>
+            <button id='submit-join-button' type='button'>Submit</button>&nbsp;&nbsp;
+            <input id='cancel-join-button' type='button' value='Cancel'>&nbsp;&nbsp;
+            <input type='reset'>
+        </form>
+    </div>
+    
+    <!-- Unsubscribe modal window-->
+    <div id='unsubscribe-box' class='modal-window'>
+        <h2 style='text-align:center'>Unsubscribe</h2>
+        <br>
+        <form>
+            <label class='modal-label'>Username:</label>
+            <input id='username-unsubscribe-input' type='text' name='username' required><br>
+            <br>
+            <label class='modal-label'>Password:</label>
+            <input id='password-unsubscribe-input' type='password' name='password' required><br>
+            <br>
+            <button id='submit-unsubscribe-button' type='button'>Submit</button>&nbsp;&nbsp;
+            <input id='cancel-unsubscribe-button' type='button' value='Cancel'>&nbsp;&nbsp;
+            <input type='reset'>
+        </form>
+    </div>
+    
+    <!-- User interface for chatting -->
+    
+    <div id='msg-input-div'>
+        <label>People in chatting:</label><br>
+        <div id='list-users-div'>
+        </div>
+        <br>
+        <hr>
+        
+        <label>To: </label><br>
+        <input type='text' id='towhom-input'><br>
+        <label>Message to send: </label><br>
+        <textarea id='msg-input-textarea' rows='2' cols='50'></textarea><br>
+        <button type='button' id='msg-send-onetoone-button'>One-to-one</button>
+        <button type='button' id='msg-send-broadcasting-button'>Broadcasting</button>
+    </div>
+    <br>
+    <hr>
+    
+    <label>Messages from people:</label><br>
+    <div id='msg-output-div'>
+    </div>
+</body>
+</html>
+
+<script>
+    /*
+    *   Modal windows
+    */
+    
+    function show_join() {
+        document.getElementById('blanket').style.display = 'block';
+        document.getElementById('join-box').style.display = 'block';
+    };
+    
+    function show_signin() {
+        document.getElementById('blanket').style.display = 'block';
+        document.getElementById('signin-box').style.display = 'block';
+    };
+    
+    function show_unsubscribe() {
+        document.getElementById('blanket').style.display = 'block';
+        document.getElementById('unsubscribe-box').style.display = 'block';
+    };
+    
+    function hide_modals() {
+        document.getElementById('blanket').style.display = 'none';
+        document.getElementById('signin-box').style.display = 'none';
+        document.getElementById('join-box').style.display = 'none';
+        document.getElementById('unsubscribe-box').style.display = 'none';
+    }
+    
+    document.getElementById('menu-signin').addEventListener('click', function() {
+        document.getElementById('blanket').style.display = 'block';
+        document.getElementById('signin-box').style.display = 'block';
+    });
+    document.getElementById('menu-join').addEventListener('click', function() {
+        document.getElementById('blanket').style.display = 'block';
+        document.getElementById('join-box').style.display = 'block';
+    });
+    document.getElementById('menu-unsubscribe').addEventListener('click', function() {
+        document.getElementById('blanket').style.display = 'block';
+        document.getElementById('unsubscribe-box').style.display = 'block';
+    });
+    document.getElementById('blanket').addEventListener('click', function() {
+        hide_modals();
+    });
+    document.getElementById('cancel-signin-button').addEventListener('click', function() {
+        hide_modals();
+    });
+    document.getElementById('cancel-join-button').addEventListener('click', function() {
+        hide_modals();
+    });
+    document.getElementById('cancel-unsubscribe-button').addEventListener('click', function() {
+        hide_modals();
+    });
+</script>
+
+<script>
+    var url = "chat_server.sjs"
+    
+    $("#submit-join-button").click(function() {
+        hide_modals();
+        
+        query = {};
+        query.command = "join";
+        query.username = $("#username-join-input").val();
+        query.password = $("#password-join-input").val();
+        query.email = $("#email-join-input").val();
+        $.post(url, query, function(data) {
+            alert(data);
+        });
+    });
+    
+    $("#submit-signin-button").click(function() {
+        hide_modals();
+                
+        query = {};
+        query.command = "signin";
+        query.username = $("#username-signin-input").val();
+        query.password = $("#password-signin-input").val();
+        $.post(url, query, function(data) {
+            alert(data);
+        });
+    });
+    
+    $("#submit-unsubscribe-button").click(function() {
+        hide_modals();
+                
+        query = {};
+        query.command = "unsubscribe";
+        query.username = $("#username-unsubscribe-input").val();
+        query.password = $("#password-unsubscribe-input").val();
+        $.post(url, query, function(data) {
+            alert(data);
+        });
+    });
+</script>
