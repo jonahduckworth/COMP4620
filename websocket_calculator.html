@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #menu {
+            display: block;
+            position: absolute;
+            height: 25px;
+            width: 120px;
+            /*
+            border-style: solid;
+            border-width: 2px;
+            top: 100px;
+            left: 100px;
+            */
+            z-index: 999999;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Calculator - WebSocket</h1>
+        <hr>
+        <h2>Connection</h2>
+            URL for your Calculator WebSocket Server: 
+            <input id='url' type='text' size='50' value='ws://cs.tru.ca:xxxx/'><br><br>
+            <button type='button' id='connect'>Connect</button>
+            <br>
+            <br>
+        <hr>
+        <h2>Calculator</h2>
+        <div style='margin:20px'>
+            x = <input id='x' type='number' value='10'><br><br>
+            y = <input id='y' type='number' value='20'><br><br>
+            x + y = <span id='result-add'></span> &nbsp;&nbsp;&nbsp;<button id='submit-add'>Submit</button><br><br>
+            x - y = <span id='result-sub'></span> &nbsp;&nbsp;&nbsp;<button id='submit-sub'>Submit</button><br><br>
+            x * y = <span id='result-multi'></span> &nbsp;&nbsp;&nbsp;<button id='submit-multi'>Submit</button><br><br>
+            x / y = <span id='result-div'></span> &nbsp;&nbsp;&nbsp;<button id='submit-div'>Submit</button><br><br>
+        </div>
+    </div>
+    <script>
+        let flag = false;
+        let ws;
+        $('#connect').click( function() {
+            url = document.getElementById("url").value;
+            ws = new WebSocket(url);
+            alert ("Connected to " + url);
+
+            ws.onopen = function() {
+                flag = true;
+            };
+            ws.onclose = function() { 
+                flag = false;
+            };
+            ws.onmessage = function(eobj) {
+                display(eobj.data);
+            };
+        });
+        
+        function display(data) {
+            data = JSON.parse(data);  // convert data (JSON string) to an object
+            
+            switch(data.op) {
+                case 'addition':
+                    $('#result-add').html(data.result);
+                    break;
+                case 'subtraction':
+                    $('#result-sub').html(data.result);
+                    break;
+                case 'multiplication':
+                    $('#result-multi').html(data.result);
+                    break;
+                case 'division':
+                    $('#result-div').html(data.result);
+                    break;
+                default:
+                    alert('error');
+            }
+        }
+
+        let query = {};
+        $('#submit-add').click(function() {
+            query['op'] = 'addition';
+            query['x'] = $('#x').val();
+            query['y'] = $('#y').val();
+            ws.send(JSON.stringify(query));
+        });
+        $('#submit-sub').click(function() {
+            query['op'] = 'subtraction';
+            query['x'] = $('#x').val();
+            query['y'] = $('#y').val();
+            ws.send(JSON.stringify(query));
+        });
+        $('#submit-multi').click(function() {
+            query['op'] = 'multiplication';
+            query['x'] = $('#x').val();
+            query['y'] = $('#y').val();
+            ws.send(JSON.stringify(query));
+        });
+        $('#submit-div').click(function() {
+            query['op'] = 'division';
+            query['x'] = $('#x').val();
+            query['y'] = $('#y').val();
+            ws.send(JSON.stringify(query));
+        });
+    </script>
+</body>

@@ -122,3 +122,246 @@ _POST:  [Object: null prototype] {
   email: 's@m.ca'
 }
 succesful join
+/var/www/html/chat_view.html
+chat_view.html
+/var/www/html/menu_icon.png
+~
+//home2/students/comp3540test/public_html/chat_view.html
+chat_view.html
+~
+//home2/students/comp3540test/public_html/menu_icon.png
+/var/www/html/chat_view.html
+chat_view.html
+/var/www/html/menu_icon.png
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'signin',
+  username: 'abc',
+  password: 'abc'
+}
+succesful sign in
+/var/www/html/favicon.ico
+~
+//home2/students/comp3540test/public_html/chat_view.html
+chat_view.html
+~
+//home2/students/comp3540test/public_html/menu_icon.png
+~
+//home2/students/comp3540test/public_html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'signin',
+  username: 'abc',
+  password: 'abc'
+}
+succesful sign in
+/var/www/html/favicon.ico
+/var/www/html/
+/var/www/html/
+/var/www/html/favicon2.iso
+/var/www/html/favicon2.iso
+/var/www/html/
+/var/www/html/
+/var/www/html/xmldata
+/var/www/html/xmldata
+/var/www/html/upnp/BasicDevice.xml
+/var/www/html/upnp/BasicDevice.xml
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/Wsusadmin/Errors/BrowserSettings.aspx
+/var/www/html/Wsusadmin/Errors/BrowserSettings.aspx
+/var/www/html/home.asp
+/var/www/html/
+/var/www/html/
+/var/www/html/content/dsjkdjfljk.mp3
+/var/www/html/mocucwlv
+/var/www/html/
+/var/www/html/
+/var/www/html/content/dsjkdjfljk.mp3
+/var/www/html/
+/var/www/html/
+/var/www/html/FSF/CMD
+/var/www/html/fakeurl.htm
+/var/www/html/
+/var/www/html/
+/var/www/html/invoker/EJBInvokerServlet
+/var/www/html/invoker/EJBInvokerServlet
+/var/www/html/invoker/JMXInvokerServlet
+/var/www/html/
+/var/www/html/invoker/JMXInvokerServlet
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/securecgi-bin/CSUserCGI.exe
+/var/www/html/ajdifpaf
+/var/www/html/
+/var/www/html/securecgi-bin/CSUserCGI.exe
+/var/www/html/securecgi-bin/CSUserCGI.exe
+/var/www/html/securecgi-bin/CSUserCGI.exe
+/var/www/html/
+/var/www/html/
+/var/www/html/servlet/admin
+/var/www/html/
+/var/www/html/
+/var/www/html/../pixfir~1/how_to_login.html
+how_to_login.html
+/var/www/html/
+/var/www/html/
+~
+//home2/students/comp3540test/public_html/test.html
+test.html
+/var/www/html/favicon.ico
+~
+//home2/students/comp3540test/public_html/chat_view.html
+chat_view.html
+~
+//home2/students/comp3540test/public_html/menu_icon.png
+~
+//home2/students/comp3540test/public_html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'unsubscribe',
+  username: '11111111',
+  password: '12'
+}
+succesful unsubscribe
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/favicon2.iso
+/var/www/html/favicon2.iso
+/var/www/html/
+/var/www/html/
+/var/www/html/xmldata
+/var/www/html/xmldata
+/var/www/html/upnp/BasicDevice.xml
+/var/www/html/upnp/BasicDevice.xml
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/Wsusadmin/Errors/BrowserSettings.aspx
+/var/www/html/Wsusadmin/Errors/BrowserSettings.aspx
+/var/www/html/content/dsjkdjfljk.mp3
+/var/www/html/home.asp
+/var/www/html/content/dsjkdjfljk.mp3
+/var/www/html/tmhivxjb
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/FSF/CMD
+/var/www/html/fakeurl.htm
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/invoker/EJBInvokerServlet
+/var/www/html/invoker/EJBInvokerServlet
+/var/www/html/
+/var/www/html/invoker/JMXInvokerServlet
+/var/www/html/
+/var/www/html/invoker/JMXInvokerServlet
+/var/www/html/
+/var/www/html/gwuagkik
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/servlet/admin
+/var/www/html/
+/var/www/html/
+/var/www/html/../pixfir~1/how_to_login.html
+how_to_login.html
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/chat_view.html
+chat_view.html
+/var/www/html/menu_icon.png
+/var/www/html/favicon.ico
+/var/www/html/chat_view.html
+chat_view.html
+/var/www/html/menu_icon.png
+/var/www/html/favicon.ico
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'join',
+  username: 'abc',
+  password: 'abc',
+  email: 'abc'
+}
+succesful join
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'signin',
+  username: 'abc',
+  password: 'abc'
+}
+succesful sign in
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'unsubscribe',
+  username: 'abc',
+  password: 'abc'
+}
+succesful unsubscribe
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'signin',
+  username: 'abc',
+  password: 'abc'
+}
+succesful sign in
+/var/www/html/
+/var/www/html/
+/var/www/html/
+/var/www/html/
+~
+//home2/students/comp3540test/public_html/test.html
+test.html
+/var/www/html/favicon.ico
+/var/www/html/Chat_App/chat_view.html
+chat_view.html
+/var/www/html/Chat_App/menu_icon.png
+/var/www/html/chat_view.html
+chat_view.html
+/var/www/html/menu_icon.png
+/var/www/html/chat_server.sjs
+./chat_server.sjs
+_POST:  [Object: null prototype] {
+  command: 'unsubscribe',
+  username: '22222',
+  password: '22'
+}
+succesful unsubscribe
+/var/www/html/websocket_calculator.html
+websocket_calculator.html
+/var/www/html/favicon.ico
+/var/www/html/websocket_calculatossssssr.html
+websocket_calculatossssssr.html
+/var/www/html/websocket_calculator.html
+websocket_calculator.html
+/var/www/html/
